@@ -1,34 +1,55 @@
 <html>
 <head>
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic' rel='stylesheet' type='text/css'>
     <link type="text/css" rel="stylesheet" href="css/listStyles.css" />
     <script src="lib/jquery-1.7.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="src/explodingList.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <div class="container">
+    <input id="showHideButton" type="button" value="Expand All" />
     <ul class="apiListing">
         <li class="apiService">
             <h2 class="apiServiceHeader">
-                Service
+                SiteService
             </h2>
             <ul class="apiMethodList">
-                <li class="apiMethod">
+                <li class="apiMethod" id="getPrograms">
                     <h3 class="apiMethodHeader">
-                        Method1
+                        GetPrograms
                     </h3>
                     <ul class="apiArgumentList">
+                        <p class="apiMethodDescription">
+                            Returns a list of Programs.
+                        </p>
+                        <a class="editLink" href="javascript:createNewCall('getPrograms');">New Test</a>
                         <li class="argument">AppointmentIDs <span class="numArgs">8</span></li>
                         <li class="argument">LocationIDs <span class="numArgs">7</span></li>
                         <li class="argument">StartDate <span class="numArgs">2</span></li>
-                        <li class="argument selectedArg">EndDate <span class="numArgs">2</span></li>
+                        <li class="argument">EndDate <span class="numArgs">2</span></li>
+                    </ul>
+                    <ul class="apiTestList">
+                        <li class="apiTest"><a class="genXML" href="">XML</a> <span class="apiTestArgument">AppointmentIDs</span> &#8594; { 9, 21 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012, <span class="apiTestArgument">LocationIDs</span>  &#8594;  {1, 2, 3},  </l>
+                        <li class="apiTest failed"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1, 5 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                        <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                        <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                        <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                        <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                    <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                        <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                        <li class="apiTest"><span class="apiTestArgument">AppointmentIDs</span> &#8594; { 1 }, <span class="apiTestArgument">StartDate</span>  &#8594;  1/13/2012,  </l>
+                    
                     </ul>
                 </li>
-                <li class="apiMethod">
+                <li class="apiMethod" id="getSessionTypes">
                     <h3 class="apiMethodHeader">
-                        Method2
+                        GetSessionTypes
                     </h3>
                     <ul class="apiArgumentList">
+                    <p class="apiMethodDescription">
+                        Returns a list of Session Types.
+                    </p>
                         <li class="argument">AppointmentIDs <span class="numArgs">8</span></li>
                         <li class="argument">LocationIDs <span class="numArgs">7</span></li>
                     </ul>
@@ -62,15 +83,23 @@
         </li>
     </ul>
 </div>
+<div class="container">
+
+</div>
 <script type="text/javascript" charset="utf-8">
   // Use headers to toggle presence of lower level lists
   console.log("Adding plugin");
   $('.apiServiceHeader').showHideChildren();
-  $('.apiService').toggleAble();
+  //$('.apiService').toggleAble();
   $('.apiMethodHeader').showHideChildren();
-  $('.apiMethod').toggleAble(); 
+ // $('.apiMethod').toggleAble(); 
   // items of this class show "selectedness" 
   $('.argument').toggleAble();
+  
+  $('#showHideButton').live("click",function(){
+      $(this).val("Collapse All");
+      showOrHideChildren($(".apiListing").find('ul'));
+        });
 </script>
 </body>
 </html>

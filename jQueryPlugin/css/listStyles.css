@@ -18,6 +18,7 @@ ol, ul {
 
 body {
     font-family: 'Nunito', sans-serif;
+    /*font-family: 'Ubuntu', sans-serif;*/
 }
 
 .container {
@@ -59,6 +60,25 @@ body {
     background-color: #ccc;
 }
 
+.apiMethodDescription {
+    margin-bottom: 10px;    
+}
+
+.editLink {
+    float: right;
+    top: -40px;
+    position: relative;
+    text-decoration: none;
+    font-weight: bold;
+    color: #eee;    
+    background-color: #55688A;
+    border: 2px solid white;
+    font-size: 80%;
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
 .apiArgumentList {
     margin-left: 20px;
 }
@@ -74,8 +94,51 @@ body {
     background-color: #eee;    
 }
 
+.apiTestList {
+    max-height: 100px;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.apiTest {
+    margin-top: 5px;
+}
+
+.apiTestArgument {
+    font-weight: bold;   
+}
+
+.genXML {
+    text-decoration: none;
+    background-color: #55688A;
+    border: 2px solid white;
+    color: white;
+    font-size: 80%;
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.failed {
+    background-color: #F4A7A6;
+}
+
 .selected {
     margin-left: 0px;
+    color: #55688A;
+}
+/*
+.edited {
+    text-align: right;    
+}
+*/
+.argValueInput {
+    width: 3em;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    text-align: center;
+    float: right;
 }
 
 .numArgs {
@@ -83,9 +146,9 @@ body {
 }
 
 .numArgs:before {
-    content: "[ ";
+    content: "[\2713] ";
 }
 
 .numArgs:after {
-    content: " ]";
+    content: " ";
 }
